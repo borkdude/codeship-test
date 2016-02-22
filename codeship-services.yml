@@ -1,0 +1,30 @@
+consul:
+  image: "progrium/consul"
+  hostname: "node1"
+  ports:
+    - "8400:8400"
+    - "8500:8500"
+    - "53:53"
+  command: "-server -bootstrap"
+
+container2:
+  image: "busybox"
+  links:
+  - consul
+    
+# app:
+#   build:
+#     image: app
+#     dockerfile_path: Dockerfile
+#   environment:
+#     REDIS_URL: "redis://redis:6379"
+#     POSTGRES_HOST: postgres
+#     POSTGRES_DB: postgres
+#     POSTGRES_USER: postgres
+#   links:
+#     - redis
+#     - postgres
+# redis:
+#   image: redis:3.0.2
+# postgres:
+#    image: postgres:9.4.3

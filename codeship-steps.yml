@@ -1,0 +1,2 @@
+- service: container2
+  command: "ping -W 20 -c 1 consul"
